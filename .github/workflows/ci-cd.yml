@@ -26,7 +26,7 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           version: "latest"
-          args: "format --check --dif"
+          args: "format --check --diff"
   test:
     name: Run Tests
     runs-on: ubuntu-latest
