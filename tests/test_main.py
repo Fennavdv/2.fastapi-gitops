@@ -46,11 +46,8 @@ def test_get_item():
 def test_create_item():
     """Test the create item endpoint."""
     response = client.post(
-        "/api/items", params={"name": "Box", "description:": "It is a cube."}
+        "/api/items", params={"name": "Box", "description": "It is a cube."}
     )
-
-    print(response.request.url)
-    print(response.json())
 
     assert response.status_code == 200
     assert response.json() == {
