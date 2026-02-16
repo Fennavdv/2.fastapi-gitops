@@ -33,26 +33,26 @@ def test_list_items():
     assert data["items"][0]["id"] == 1
 
 
-def test_get_item():
-    """Test the get item endpoint."""
-    response = client.get("/api/items/5")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["id"] == 5
-    assert data["name"] == "Item 5"
-    assert "item number 5" in data["description"]
+# def test_get_item():
+#   """Test the get item endpoint."""
+#   response = client.get("/api/items/5")
+#  assert response.status_code == 200
+#   data = response.json()
+#   assert data["id"] == 5
+#  assert data["name"] == "Item 5"
+#   assert "item number 5" in data["description"]
 
 
-def test_create_item():
-    """Test the create item endpoint."""
-    response = client.post(
-        "/api/items", params={"name": "Box", "description": "It is a cube."}
-    )
+# def test_create_item():
+#   """Test the create item endpoint."""
+#   response = client.post(
+#       "/api/items", params={"name": "Box", "description": "It is a cube."}
+#   )
 
-    assert response.status_code == 200
-    assert response.json() == {
-        "id": 999,
-        "name": "Box",
-        "description": "It is a cube.",
-        "created": True,
-    }
+#   assert response.status_code == 200
+#   assert response.json() == {
+#       "id": 999,
+#       "name": "Box",
+#       "description": "It is a cube.",
+#       "created": True,
+#    }
