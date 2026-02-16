@@ -17,12 +17,6 @@ jobs:
       contents: read
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-  lint_ruff:
-    name: Lint using Ruff
-    runs-on: ubuntu-latest
-    steps:
-      - name: Lint the code using Ruff
         uses: astral-sh/ruff-action@v3
         with:
           version: "latest"
@@ -35,10 +29,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-  test-unit:
-    script:
-      - coverage run unit/
-    coverage: '/TOTAL.+ ([0-9]{1,3}%)/'
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
