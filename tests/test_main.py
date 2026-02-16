@@ -49,6 +49,9 @@ def test_create_item():
         "/api/items/", params={"name": "Box", "description:": "It is a cube."}
     )
 
+    print(response.request.url)
+    print(response.json())
+
     assert response.status_code == 200
     assert response.json() == {
         "id": 999,
