@@ -63,5 +63,5 @@ jobs:
         with:
           push: true
           version: 'latest'
-          tag: latest
+          tag: 'latest'
 
