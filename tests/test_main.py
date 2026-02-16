@@ -1,8 +1,8 @@
-"""Tests for the main FastAPI application."""
-
 from fastapi.testclient import TestClient
 
 from app.main import app
+
+"""Tests for the main FastAPI application."""
 
 client = TestClient(app)
 
@@ -41,3 +41,18 @@ def test_get_item():
     assert data["id"] == 5
     assert data["name"] == "Item 5"
     assert "item number 5" in data["description"]
+
+
+def test_create_item():
+    """Test the create item endpoint."""
+    response = client.post(
+        "/api/items", json={"name": "Box", "description:": "It is a cube."}
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "id": 999,
+        "name": "Box",
+        "description": "It is a cube.",
+        "created": True,
+    }
