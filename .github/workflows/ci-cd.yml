@@ -18,7 +18,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+  lint_ruff:
+    name: Lint using Ruff
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Lint the code using Ruff"
+      - uses: astral-sh/ruff-action@v3
+        with:
+          version: "latest"
+          args: "format --check --dif"
   test:
     name: Run Tests
     runs-on: ubuntu-latest
