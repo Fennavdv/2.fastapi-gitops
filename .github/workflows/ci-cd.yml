@@ -17,6 +17,8 @@ jobs:
       contents: read
     steps:
       - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Lint using Ruff
         uses: astral-sh/ruff-action@v3
         with:
           version: "latest"
@@ -29,6 +31,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Set up python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install the dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Tests
+        run: pytest --cov=app
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
