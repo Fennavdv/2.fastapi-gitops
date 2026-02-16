@@ -63,5 +63,5 @@ jobs:
         with:
           push: true
           version: 'latest'
-          tags: latest
+          tags: fennavdv2/2.fastapi-gitiops:latest
 
